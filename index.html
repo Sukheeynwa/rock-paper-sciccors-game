@@ -3,17 +3,38 @@
     <head> 
         <meta charset = "UTF-8">
         <link rel = "stylesheet" href = "style.css">
+        <title>Rock Paper Sciccors game</title>
     </head>
     <body>
         <h1>Rock Paper Sciccors game</h1>
-        <h3 id = "user-choice">User Choice: </h3>
-        <h3 id = "computer-choice">Computer Choice: </h3>
-        <h4 id = "user-score">User Score: </h3>
-        <h4 id = "computer-score">Computer Score: </h3>
-        <button id = "rock">Rock</button>
-        <button id = "paper">Paper</button>
-        <button id = "sciccors">Sciccors</button>
+        <div id = "container">
+            <div id = "user-choices">
+                <h3>You</h3>
+                <div>
+                    <img src="images/rock.png" alt="Rock pic" id = "rock">
+                    <img src="images/paper.png" alt="Paper pic" id = "paper">
+                    <img src="images/sciccors.png" alt="Sciccors pic" id = "sciccors">
+                </div>
+            </div>
+            <div id = "score">
+                <h3>Score</h3>
+                <div>
+                    <h3 id = "user-score">0</h3>
+                    <h3>:</h3>
+                    <h3 id = "computer-score">0</h3>
+                </div>
+            </div>
+            <div id = "computer-choices">
+                <h3>Computer</h3>
+                <div>
+                    <img src="images/rock.png" alt="Rock pic" id = "rock-computer">
+                    <img src="images/paper.png" alt="Paper pic" id = "paper-computer">
+                    <img src="images/sciccors.png" alt="Sciccors pic" id = "sciccors-computer">
+                </div>
+            </div>
+        </div>
         <h3 id = "result">Result: </h3>
+        <a id = "try-again" href=""></a>
         <script src = "javascript.js" defer></script>
     </body>
 </html>
