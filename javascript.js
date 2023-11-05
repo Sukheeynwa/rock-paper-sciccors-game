@@ -1,8 +1,6 @@
 let userScore = 0;
 let computerScore = 0;
 let result = "";
-let userChoice = "";
-let computerChoice = "";
 
 const choices = ["Rock", "Paper", "Sciccors"]
 
@@ -31,23 +29,52 @@ function getResult (userInput, computerInput) {
     } else {
         result = "Tied!"
     }; 
-    userChoice = userInput
-    computerChoice = computerInput
+
+    rockComputer.style.backgroundColor = "";
+    sciccorsComputer.style.backgroundColor = "";
+    paperComputer.style.backgroundColor = "";
+
+    rock.style.backgroundColor = "";
+    paper.style.backgroundColor = "";
+    sciccors.style.backgroundColor = "";
+
+    if (userInput === "Rock") {
+        rock.style.backgroundColor = "coral";
+    } else if (userInput === "Paper") {
+        paper.style.backgroundColor = "coral";
+    } else {
+        sciccors.style.backgroundColor = "coral";
+    } 
+
+    if (computerInput === "Rock") {
+        rockComputer.style.backgroundColor = "teal";
+    } else if (computerInput === "Paper") {
+        paperComputer.style.backgroundColor = "teal";
+    } else {
+        sciccorsComputer.style.backgroundColor = "teal";
+    } 
+
+    userScoreId.textContent = userScore;
+    computerScoreId.textContent = computerScore;
+    gameResult.textContent = "Result: " + result;
+
 };
 
 function gameStart (i) {
     getResult(getUserChoice(i), getComputerChoice())
 
-    userScoreId.textContent = "User Score: " + userScore;
-    computerScoreId.textContent = "Computer Score: " + computerScore;
-    userChoiceId.textContent = "User Choice: " + userChoice;
-    computerChoiceId.textContent = "Computer Choice: " + computerChoice;
-    gameResult.textContent = "Result: " + result;
-
     if (userScore === 5) {
-        alert("You won the game!")
+        gameResult.textContent = "You won the game!"
     } else if (computerScore === 5) {
-        alert("You lost the game!")
+        gameResult.textContent = "You lost the game!"
+    } 
+
+    if (userScore === 5 || computerScore === 5) {
+        let tryAgain = document.querySelector("#try-again")
+        let btn = document.createElement("button");
+        btn.setAttribute("href", "index.html")
+        btn.textContent = "Try Again!"
+        tryAgain.appendChild(btn);
     }
 }
 
@@ -55,21 +82,16 @@ function gameStart (i) {
 let rock = document.querySelector("#rock");
 let paper = document.querySelector("#paper");
 let sciccors = document.querySelector("#sciccors");
+
+let rockComputer = document.querySelector("#rock-computer");
+let paperComputer = document.querySelector("#paper-computer");
+let sciccorsComputer = document.querySelector("#sciccors-computer");
+
 let userScoreId = document.querySelector("#user-score");
 let computerScoreId = document.querySelector("#computer-score");
 let gameResult = document.querySelector("#result");
-let userChoiceId = document.querySelector("#user-choice");
-let computerChoiceId = document.querySelector("#computer-choice");
 
-/* let btn = document.querySelectorAll("button")
-
-btn.forEach((button, i) => {
-    button.addEventListener("click", (i) => {
-        gameStart(i)
-    })
-}); */
-
-rock.addEventListener("click", () => {
+/* rock.addEventListener("click", () => {
     gameStart(0)
 });
 
@@ -79,4 +101,19 @@ paper.addEventListener("click", () => {
 
 sciccors.addEventListener("click", () => {
     gameStart(2)
-});
+}); */
+
+let img = document.querySelectorAll("#user-choices img")
+
+img.forEach((img, i) => {
+    img.addEventListener("click", () => {
+        gameStart(i)
+    })
+})
+
+
+
+
+
+
+
